@@ -1,0 +1,21 @@
+!service-definition-v1
+name: WMA
+description: WMA
+requests:
+- 'GS1:TransferOrder:GS1_JDA 2019.1.0'
+- 'GS1:TransferOrder:GS1_JDA 2017.2.0'
+- 'GS1:OrderRelease:GS1_JDA 2019.1.0'
+- 'GS1:OrderRelease:GS1_JDA 2017.2.0'
+- 'GS1:PurchaseOrder:GS1_JDA 2019.1.0'
+- 'GS1:PurchaseOrder:GS1_JDA 2017.2.0'
+- 'GS1:ReturnOrder:GS1_JDA 2017.2.0'
+- 'GS1:transportLoadMessage:GS1_JDA 2019.1.1'
+- 'GS1:transportLoadMessage:GS1_JDA 2019.1.0'
+- 'GS1:transportLoadMessage:GS1_JDA 2017.2.0'
+- 'GS1:despatchAdviceMessage:GS1_JDA 2017.2.0'
+- 'GS1:despatchAdviceMessage:GS1_JDA 2019.1.1'
+- 'GS1:transportPickUpDropOffRequestMessage:GS1_JDA 2017.2.0'
+- 'GS1:locationMessage:GS1_JDA 2017.2.0'
+- 'GS1:partyMessage:GS1_JDA 2017.2.0'
+- 'GS1:itemMessage:GS1_JDA 2019.1.1'
+- 'GS1:itemMessage:GS1_JDA 2019.1.0'

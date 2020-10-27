@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    ==========================================================================
+                         Copyright 2019, JDA Software Group, Inc.
+                                   All Rights Reserved
+
+                      THIS IS UNPUBLISHED PROPRIETARY SOURCE CODE OF
+                                 JDA SOFTWARE GROUP, INC.
+
+
+                  The copyright notice above does not evidence any actual
+                       or intended publication of such source code.
+
+     ==========================================================================
+
+-->
+
+<code-map-configuration>
+  <code-map name="OrderTypeCode" bi-directional="true">
+    <code key="150" value="TO"/>
+    <code key="173" value="CO"/>
+    <code key="220" value="PO"/>
+    <code key="10001" value="RO"/>
+  </code-map>
+  <code-map name="LoadStatusCodeTypeFromAppToGS1">
+    <code key="S_OPEN" value="OPEN"/>
+    <code key="S_PLANNED" value="PLANNED"/>
+    <code key="S_TENDERED" value="TENDERED"/>
+    <code key="S_TENDER_ACCEPTED" value="TENDER_ACCEPTED"/>
+    <code key="S_CANCELLED" value="CANCELLED"/>
+    <code key="S_TENDER_REJECTED" value="TENDER_REJECTED"/>
+    <code key="S_IN_TRANSIT" value="IN_TRANSIT"/>
+    <code key="S_COMPLETED" value="COMPLETED"/>
+    <code key="S_CLOSED" value="CLOSED"/>
+    <code key="S_LOADING_CONFIRMING" value="CONFIRMING"/>
+  </code-map>
+  <code-map name="ShipmentSplitMethodCodeFromGS1ToApp">
+    <code key="CONTINUOUS" value="SPLIT_METHOD_CONTINUOUS"/>
+    <code key="PIECES" value="SPLIT_METHOD_PIECES"/>
+    <code key="PALLETS" value="SPLIT_METHOD_PALLETS"/>
+    <code key="DETAIL_LEVEL" value="SPLIT_METHOD_DETL_LVL"/>
+    <code key="NO_SPLIT" value="SPLIT_METHOD_NONE"/>
+  </code-map>
+  <code-map name="TransportServiceLevelCode" bi-directional="true">
+    <code key="3DAY" value="THREE_DAY_SERVICE"/>
+    <code key="GROUND" value="GROUND"/>
+    <code key="OVERNIGHT" value="NEXT_DAY_AIR"/>
+    <code key="FTL" value="FTL"/>
+  </code-map>
+  <code-map name="TransportServiceCategoryCodeFromAppToGS1">
+    <code key="TSM_RAIL" value="20"/>
+    <code key="TSM_ROAD" value="30"/>
+    <code key="TSM_NULL" value="30"/>
+    <code key="TSM_AIR" value="40"/>
+    <code key="TSM_OCEAN" value="10"/>
+    <code key="TSM_PARCEL" value="30"/>
+    <code key="TSM_TRUCKLOAD" value="30"/>
+    <code key="TSM_LTL" value="30"/>
+    <code key="TSM_USERDEFINED_1" value="30"/>
+    <code key="TSM_USERDEFINED_2" value="30"/>
+    <code key="TSM_USERDEFINED_3" value="30"/>
+    <code key="TSM_USERDEFINED_4" value="30"/>
+    <code key="TSM_USERDEFINED_5" value="30"/>
+    <code key="TSM_USERDEFINED_6" value="30"/>
+    <code key="TSM_USERDEFINED_7" value="30"/>
+    <code key="TSM_USERDEFINED_8" value="30"/>
+    <code key="TSM_USERDEFINED_9" value="30"/>
+  </code-map>
+  <code-map name="TransportServiceTransitModeFromAppToGS1">
+    <code key="FTL" value="2"/>
+    <code key="3DAY" value="2"/>
+    <code key="GROUND" value="3"/>
+    <code key="OVERNIGHT" value="3"/>
+  </code-map>
+  <code-map name="TransportMeansTypeCodeFromGS1ToApp">
+    <code key="45" value="45FT"/>
+    <code key="40" value="40FT"/>
+  </code-map>
+  <code-map name="CountryCode" bi-directional="true">
+    <code key="AD" value="AND"/>
+    <code key="AE" value="ARE"/>
+    <code key="AF" value="AFG"/>
+    <code key="AG" value="ATG"/>
+    <code key="AI" value="AIA"/>
+    <code key="AL" value="ALB"/>
+    <code key="AM" value="ARM"/>
+    <code key="AO" value="AGO"/>
+    <code key="AQ" value="ATA"/>
+    <code key="AR" value="ARG"/>
+    <code key="AS" value="ASM"/>
+    <code key="AT" value="AUT"/>
+    <code key="AU" value="AUS"/>
+    <code key="AW" value="ABW"/>
+    <code key="AX" value="ALA"/>
+    <code key="AZ" value="AZE"/>
+    <code key="BA" value="BIH"/>
+    <code key="BB" value="BRB"/>
+    <code key="BD" value="BGD"/>
+    <code key="BE" value="BEL"/>
+    <code key="BF" value="BFA"/>
+    <code key="BG" value="BGR"/>
+    <code key="BH" value="BHR"/>
+    <code key="BI" value="BDI"/>
+    <code key="BJ" value="BEN"/>
+    <code key="BL" value="BLM"/>
+    <code key="BM" value="BMU"/>
+    <code key="BN" value="BRN"/>
+    <code key="BO" value="BOL"/>
+    <code key="BQ" value="BES"/>
+    <code key="BR" value="BRA"/>
+    <code key="BS" value="BHS"/>
+    <code key="BT" value="BTN"/>
+    <code key="BV" value="BVT"/>
+    <code key="BW" value="BWA"/>
+    <code key="BY" value="BLR"/>
+    <code key="BZ" value="BLZ"/>
+    <code key="CA" value="CAN"/>
+    <code key="CC" value="CCK"/>
+    <code key="CD" value="COD"/>
+    <code key="CF" value="CAF"/>
+    <code key="CG" value="COG"/>
+    <code key="CH" value="CHE"/>
+    <code key="CI" value="CIV"/>
+    <code key="CK" value="COK"/>
+    <code key="CL" value="CHL"/>
+    <code key="CM" value="CMR"/>
+    <code key="CN" value="CHN"/>
+    <code key="CO" value="COL"/>
+    <code key="CR" value="CRI"/>
+    <code key="CU" value="CUB"/>
+    <code key="CV" value="CPV"/>
+    <code key="CW" value="CUW"/>
+    <code key="CX" value="CXR"/>
+    <code key="CY" value="CYP"/>
+    <code key="CZ" value="CZE"/>
+    <code key="DE" value="DEU"/>
+    <code key="DJ" value="DJI"/>
+    <code key="DK" value="DNK"/>
+    <code key="DM" value="DMA"/>
+    <code key="DO" value="DOM"/>
+    <code key="DZ" value="DZA"/>
+    <code key="EC" value="ECU"/>
+    <code key="EE" value="EST"/>
+    <code key="EG" value="EGY"/>
+    <code key="EH" value="ESH"/>
+    <code key="ER" value="ERI"/>
+    <code key="ES" value="ESP"/>
+    <code key="ET" value="ETH"/>
+    <code key="FI" value="FIN"/>
+    <code key="FJ" value="FJI"/>
+    <code key="FK" value="FLK"/>
+    <code key="FM" value="FSM"/>
+    <code key="FO" value="FRO"/>
+    <code key="FR" value="FRA"/>
+    <code key="GA" value="GAB"/>
+    <code key="GB" value="GBR"/>
+    <code key="GD" value="GRD"/>
+    <code key="GE" value="GEO"/>
+    <code key="GF" value="GUF"/>
+    <code key="GG" value="GGY"/>
+    <code key="GH" value="GHA"/>
+    <code key="GI" value="GIB"/>
+    <code key="GL" value="GRL"/>
+    <code key="GM" value="GMB"/>
+    <code key="GN" value="GIN"/>
+    <code key="GP" value="GLP"/>
+    <code key="GQ" value="GNQ"/>
+    <code key="GR" value="GRC"/>
+    <code key="GS" value="SGS"/>
+    <code key="GT" value="GTM"/>
+    <code key="GU" value="GUM"/>
+    <code key="GW" value="GNB"/>
+    <code key="GY" value="GUY"/>
+    <code key="HK" value="HKG"/>
+    <code key="HM" value="HMD"/>
+    <code key="HN" value="HND"/>
+    <code key="HR" value="HRV"/>
+    <code key="HT" value="HTI"/>
+    <code key="HU" value="HUN"/>
+    <code key="ID" value="IDN"/>
+    <code key="IE" value="IRL"/>
+    <code key="IL" value="ISR"/>
+    <code key="IM" value="IMN"/>
+    <code key="IN" value="IND"/>
+    <code key="IO" value="IOT"/>
+    <code key="IQ" value="IRQ"/>
+    <code key="IR" value="IRN"/>
+    <code key="IS" value="ISL"/>
+    <code key="IT" value="ITA"/>
+    <code key="JE" value="JEY"/>
+    <code key="JM" value="JAM"/>
+    <code key="JO" value="JOR"/>
+    <code key="JP" value="JPN"/>
+    <code key="KE" value="KEN"/>
+    <code key="KG" value="KGZ"/>
+    <code key="KH" value="KHM"/>
+    <code key="KI" value="KIR"/>
+    <code key="KM" value="COM"/>
+    <code key="KN" value="KNA"/>
+    <code key="KP" value="PRK"/>
+    <code key="KR" value="KOR"/>
+    <code key="KW" value="KWT"/>
+    <code key="KY" value="CYM"/>
+    <code key="KZ" value="KAZ"/>
+    <code key="LA" value="LAO"/>
+    <code key="LB" value="LBN"/>
+    <code key="LC" value="LCA"/>
+    <code key="LI" value="LIE"/>
+    <code key="LK" value="LKA"/>
+    <code key="LR" value="LBR"/>
+    <code key="LS" value="LSO"/>
+    <code key="LT" value="LTU"/>
+    <code key="LU" value="LUX"/>
+    <code key="LV" value="LVA"/>
+    <code key="LY" value="LBY"/>
+    <code key="MA" value="MAR"/>
+    <code key="MC" value="MCO"/>
+    <code key="MD" value="MDA"/>
+    <code key="ME" value="MNE"/>
+    <code key="MF" value="MAF"/>
+    <code key="MG" value="MDG"/>
+    <code key="MH" value="MHL"/>
+    <code key="MK" value="MKD"/>
+    <code key="ML" value="MLI"/>
+    <code key="MM" value="MMR"/>
+    <code key="MN" value="MNG"/>
+    <code key="MO" value="MAC"/>
+    <code key="MP" value="MNP"/>
+    <code key="MQ" value="MTQ"/>
+    <code key="MR" value="MRT"/>
+    <code key="MS" value="MSR"/>
+    <code key="MT" value="MLT"/>
+    <code key="MU" value="MUS"/>
+    <code key="MV" value="MDV"/>
+    <code key="MW" value="MWI"/>
+    <code key="MX" value="MEX"/>
+    <code key="MY" value="MYS"/>
+    <code key="MZ" value="MOZ"/>
+    <code key="NA" value="NAM"/>
+    <code key="NC" value="NCL"/>
+    <code key="NE" value="NER"/>
+    <code key="NF" value="NFK"/>
+    <code key="NG" value="NGA"/>
+    <code key="NI" value="NIC"/>
+    <code key="NL" value="NLD"/>
+    <code key="NO" value="NOR"/>
+    <code key="NP" value="NPL"/>
+    <code key="NR" value="NRU"/>
+    <code key="NU" value="NIU"/>
+    <code key="NZ" value="NZL"/>
+    <code key="OM" value="OMN"/>
+    <code key="PA" value="PAN"/>
+    <code key="PE" value="PER"/>
+    <code key="PF" value="PYF"/>
+    <code key="PG" value="PNG"/>
+    <code key="PH" value="PHL"/>
+    <code key="PK" value="PAK"/>
+    <code key="PL" value="POL"/>
+    <code key="PM" value="SPM"/>
+    <code key="PN" value="PCN"/>
+    <code key="PR" value="PRI"/>
+    <code key="PS" value="PSE"/>
+    <code key="PT" value="PRT"/>
+    <code key="PW" value="PLW"/>
+    <code key="PY" value="PRY"/>
+    <code key="QA" value="QAT"/>
+    <code key="RE" value="REU"/>
+    <code key="RO" value="ROU"/>
+    <code key="RS" value="SRB"/>
+    <code key="RU" value="RUS"/>
+    <code key="RW" value="RWA"/>
+    <code key="SA" value="SAU"/>
+    <code key="SB" value="SLB"/>
+    <code key="SC" value="SYC"/>
+    <code key="SD" value="SDN"/>
+    <code key="SE" value="SWE"/>
+    <code key="SG" value="SGP"/>
+    <code key="SH" value="SHN"/>
+    <code key="SI" value="SVN"/>
+    <code key="SJ" value="SJM"/>
+    <code key="SK" value="SVK"/>
+    <code key="SL" value="SLE"/>
+    <code key="SM" value="SMR"/>
+    <code key="SN" value="SEN"/>
+    <code key="SO" value="SOM"/>
+    <code key="SR" value="SUR"/>
+    <code key="SS" value="SSD"/>
+    <code key="ST" value="STP"/>
+    <code key="SV" value="SLV"/>
+    <code key="SX" value="SXM"/>
+    <code key="SY" value="SYR"/>
+    <code key="SZ" value="SWZ"/>
+    <code key="TC" value="TCA"/>
+    <code key="TD" value="TCD"/>
+    <code key="TF" value="ATF"/>
+    <code key="TG" value="TGO"/>
+    <code key="TH" value="THA"/>
+    <code key="TJ" value="TJK"/>
+    <code key="TK" value="TKL"/>
+    <code key="TL" value="TLS"/>
+    <code key="TM" value="TKM"/>
+    <code key="TN" value="TUN"/>
+    <code key="TO" value="TON"/>
+    <code key="TR" value="TUR"/>
+    <code key="TT" value="TTO"/>
+    <code key="TV" value="TUV"/>
+    <code key="TW" value="TWN"/>
+    <code key="TZ" value="TZA"/>
+    <code key="UA" value="UKR"/>
+    <code key="UG" value="UGA"/>
+    <code key="UM" value="UMI"/>
+    <code key="US" value="USA"/>
+    <code key="UY" value="URY"/>
+    <code key="UZ" value="UZB"/>
+    <code key="VA" value="VAT"/>
+    <code key="VC" value="VCT"/>
+    <code key="VE" value="VEN"/>
+    <code key="VG" value="VGB"/>
+    <code key="VI" value="VIR"/>
+    <code key="VN" value="VNM"/>
+    <code key="VU" value="VUT"/>
+    <code key="WF" value="WLF"/>
+    <code key="WS" value="WSM"/>
+    <code key="YE" value="YEM"/>
+    <code key="YT" value="MYT"/>
+    <code key="ZA" value="ZAF"/>
+    <code key="ZM" value="ZMB"/>
+    <code key="ZW" value="ZWE"/>
+  </code-map>
+  <code-map name="logisticUnitName">
+    <code key="PA" value="100"/>
+    <code key="LA" value="200"/>
+    <code key="EA" value="300"/>
+  </code-map>
+</code-map-configuration>

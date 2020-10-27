@@ -1,0 +1,179 @@
+!jmb-configuration-v1
+
+name: JMB1
+outboundEndpoints:
+- name: STR
+  flow:
+    name: jmsOutboundFlow
+    parameters:
+    - name: "queue"
+      value: "MB-STR"
+- name: PALLETESTIMATOR-Q
+  flow:
+    name: jmsOutboundFlow
+    parameters:
+    - name: "queue"
+      value: "MB-PALLETESTIMATOR"
+- name: HOST
+  flow:
+    name: jmsOutboundFlow
+    parameters:
+    - name: "queue"
+      value: "MB-HOST"
+- name: TMA
+  flow:
+    name: jmsOutboundFlow
+    parameters:
+    - name: "queue"
+      value: "MB-TMA"
+- name: WMA
+  flow:
+    name: jmsOutboundFlow
+    parameters:
+    - name: "queue"
+      value: "MB-WMA"
+- name: ACK
+  flow:
+    name: jmsOutboundFlow
+    parameters:
+    - name: "queue"
+      value: "MB-ACK"
+- name: OMS
+  flow:
+    name: jmsOutboundFlow
+    parameters:
+    - name: "queue"
+      value: "MB-OMS"
+outboundMappings:
+  - receiver: 'HOST.GLOBAL'
+    request: '*:*:*'
+    outboundEndpoint: 'HOST'
+  - receiver: 'TMS.GLOBAL'
+    request: '*:*:*'
+    outboundEndpoint: 'TMA'
+  - receiver: 'WMA.WEST|WMA.EAST'
+    request: '*:*:*'
+    outboundEndpoint: 'WMA'
+  - receiver: 'LOC.DC0001'
+    request: '*:*:*'
+    outboundEndpoint: 'WMA'
+  - receiver: 'LOC.V0001'
+    request: '*:*:*'
+    outboundEndpoint: 'WMA'
+  - receiver: 'LOC.V0002'
+    request: '*:*:*'
+    outboundEndpoint: 'WMA'
+  - receiver: 'LOC.DICKS'
+    request: '*:*:*'
+    outboundEndpoint: 'WMA'
+  - receiver: 'LOC.CAR-CON3'
+    request: '*:*:*'
+    outboundEndpoint: 'WMA'    
+  - receiver: 'LOC.DC0002'
+    request: '*:*:*'
+    outboundEndpoint: 'WMA'
+  - receiver: 'LOC.DC1001'
+    request: '*:*:*'
+    outboundEndpoint: 'WMA'
+  - receiver: 'LOC.DC1002'
+    request: '*:*:*'
+    outboundEndpoint: 'WMA'
+  - receiver: 'LOC.DC1003'
+    request: '*:*:*'
+    outboundEndpoint: 'WMA'
+  - receiver: 'LOC.E1200'
+    request: '*:*:*'
+    outboundEndpoint: 'WMA'
+  - receiver: 'LOC.CAR-CON3'
+    request: '*:*:*'
+    outboundEndpoint: 'WMA'
+  - receiver: 'LOC.DC1004'
+    request: '*:*:*'
+    outboundEndpoint: 'WMA'
+  - receiver: 'LOC.DC1005'
+    request: '*:*:*'
+    outboundEndpoint: 'WMA'
+  - receiver: 'LOC.DC1006'
+    request: '*:*:*'
+    outboundEndpoint: 'WMA'
+  - receiver: 'LOC.S0001'
+    request: '*:*:*'
+    outboundEndpoint: 'STR'
+  - receiver: 'LOC.S0002'
+    request: '*:*:*'
+    outboundEndpoint: 'STR'
+  - receiver: 'LOC.S0003'
+    request: '*:*:*'
+    outboundEndpoint: 'STR'
+  - receiver: 'LOC.S0004'
+    request: '*:*:*'
+    outboundEndpoint: 'STR'
+  - receiver: 'LOC.S0005'
+    request: '*:*:*'
+    outboundEndpoint: 'STR'
+  - receiver: 'LOC.S0006'
+    request: '*:*:*'
+    outboundEndpoint: 'STR'
+  - receiver: 'LOC.S0007'
+    request: '*:*:*'
+    outboundEndpoint: 'STR'
+  - receiver: 'LOC.S0008'
+    request: '*:*:*'
+    outboundEndpoint: 'STR'
+  - receiver: 'LOC.S0009'
+    request: '*:*:*'
+    outboundEndpoint: 'STR'
+  - receiver: 'LOC.S0010'
+    request: '*:*:*'
+    outboundEndpoint: 'STR'
+  - receiver: 'LOC.S0011'
+    request: '*:*:*'
+    outboundEndpoint: 'STR'
+  - receiver: 'LOC.S0012'
+    request: '*:*:*'
+    outboundEndpoint: 'STR'
+  - receiver: 'LOC.S0013'
+    request: '*:*:*'
+    outboundEndpoint: 'STR'
+  - receiver: 'LOC.S0014'
+    request: '*:*:*'
+    outboundEndpoint: 'STR'
+  - receiver: 'LOC.S0015'
+    request: '*:*:*'
+    outboundEndpoint: 'STR'
+  - receiver: 'LOC.S0016'
+    request: '*:*:*'
+    outboundEndpoint: 'STR'
+  - receiver: 'LOC.S0017'
+    request: '*:*:*'
+    outboundEndpoint: 'STR'
+  - receiver: 'LOC.S0018'
+    request: '*:*:*'
+    outboundEndpoint: 'STR'
+  - receiver: 'LOC.S0019'
+    request: '*:*:*'
+    outboundEndpoint: 'STR'
+  - receiver: 'LOC.S0020'
+    request: '*:*:*'
+    outboundEndpoint: 'STR'
+  - receiver: 'LOC.S0021'
+    request: '*:*:*'
+    outboundEndpoint: 'STR'
+  - receiver: 'LOC.S0022'
+    request: '*:*:*'
+    outboundEndpoint: 'STR'
+  - receiver: 'LOC.S0023'
+    request: '*:*:*'
+    outboundEndpoint: 'STR'
+  - receiver: 'LOC.S0024'
+    request: '*:*:*'
+    outboundEndpoint: 'STR'
+  - receiver: 'LOC.PALLET-ESTIMATOR'
+    request: '*:*:*'
+    outboundEndpoint: 'PALLETESTIMATOR-Q'
+  - receiver: 'OMS.GLOBAL'
+    request: '*:*:*'
+    outboundEndpoint: 'OMS'
+  - receiver: 'ACK.GLOBAL'
+    request: '*:*:*'
+    outboundEndpoint: 'ACK'

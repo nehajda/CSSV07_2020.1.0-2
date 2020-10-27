@@ -1,0 +1,30 @@
+# Properties relating to HTTP
+
+server:
+  listener: 
+  #Controls whether api endpoint accepts HTTP or HTTPS
+    config: "HTTPS_Listener_config"
+    #config: "HTTP_Listener_config"
+    
+  http:
+    host: "0.0.0.0"
+    port: "9831"
+    
+  https:
+    host: "0.0.0.0"
+    port: "9830"
+    tls:
+      keyStore:
+        path: "keystore.jks"
+        key:
+      trustStore:
+        path: "truststore.jks"
+        
+  request:
+    replay:
+      tls:
+        keyStore:
+          path: "keystore.jks"
+          key:
+        trustStore:  
+          path: "truststore.jks"

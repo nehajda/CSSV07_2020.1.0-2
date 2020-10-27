@@ -1,0 +1,63 @@
+<!--
+
+    ==========================================================================
+                         Copyright 2018, JDA Software Group, Inc.
+                                   All Rights Reserved
+
+                      THIS IS UNPUBLISHED PROPRIETARY SOURCE CODE OF
+                                 JDA SOFTWARE GROUP, INC.
+
+
+                  The copyright notice above does not evidence any actual
+                       or intended publication of such source code.
+
+     ==========================================================================
+
+-->
+
+<Configuration>
+    <WareHouses>
+        <WareHouse>
+            <WarehouseID>IWH1</WarehouseID>
+            <SystemPlanId>6701</SystemPlanId>
+            <DivisionCode>*DFT</DivisionCode>
+            <LogisticsGroupCode>*DFT</LogisticsGroupCode>
+			<ConsolidationEnabled>true</ConsolidationEnabled>
+        </WareHouse>
+        <WareHouse>
+            <WarehouseID>IWH2</WarehouseID>
+            <SystemPlanId>6701</SystemPlanId>
+            <DivisionCode>*DFT</DivisionCode>
+            <LogisticsGroupCode>*DFT</LogisticsGroupCode>
+			<ConsolidationEnabled>true</ConsolidationEnabled>
+        </WareHouse>
+		<WareHouse>
+            <WarehouseID>DC0001</WarehouseID>
+            <SystemPlanId>1942</SystemPlanId>
+            <DivisionCode>*DFT</DivisionCode>
+            <LogisticsGroupCode>*DFT</LogisticsGroupCode>
+			<ConsolidationEnabled>true</ConsolidationEnabled>
+        </WareHouse>
+		<WareHouse>
+            <WarehouseID>DC1001</WarehouseID>
+            <SystemPlanId>1942</SystemPlanId>
+            <DivisionCode>*DFT</DivisionCode>
+            <LogisticsGroupCode>*DFT</LogisticsGroupCode>
+			<ConsolidationEnabled>true</ConsolidationEnabled>
+        </WareHouse>
+		<WareHouse>
+            <WarehouseID>DC0002</WarehouseID>
+            <SystemPlanId>1942</SystemPlanId>
+            <DivisionCode>*DFT</DivisionCode>
+            <LogisticsGroupCode>*DFT</LogisticsGroupCode>
+			<ConsolidationEnabled>true</ConsolidationEnabled>
+        </WareHouse>
+        <WareHouse>
+            <WarehouseID>IWH3</WarehouseID>
+            <SystemPlanId>6701</SystemPlanId>
+            <DivisionCode>*DFT</DivisionCode>
+            <LogisticsGroupCode>*DFT</LogisticsGroupCode>
+			<ConsolidationEnabled>true</ConsolidationEnabled>
+        </WareHouse>
+    </WareHouses>
+</Configuration>

@@ -1,0 +1,45 @@
+!jmb-configuration-v1
+name: JMB1
+outboundEndpoints:
+- name: TMA.GLOBAL
+  flow:
+    name: flowJmsOut
+    parameters:
+    - name: queue
+      value: jms.flow.tma_global
+  interceptorFlow: flowInterceptTmaGlobal
+- name: WMA.WEST
+  flow:
+    name: flowJmsOut
+    parameters:
+    - name: queue
+      value: jms.flow.wma_west
+  interceptorFlow: flowInterceptWmaWest
+- name: WMA.EAST
+  flow:
+    name: flowJmsOut
+    parameters:
+    - name: queue
+      value: jms.flow.wma_east
+- name: WMA.SOUTH
+  flow:
+    name: flowJmsOut
+    parameters:
+    - name: queue
+      value: jms.flow.wma_south
+- name: AUDIT
+  flow:
+    name: flowJmsOut
+    parameters:
+    - name: queue
+      value: jms.flow.audit
+- name: errorFlow
+  flow:
+    name: flowJmsOut
+    parameters:
+    - name: queue
+      value: DLQ
+outboundMappings:
+  - receiver: 'WMA.WEST.1|WMA.WEST.2|WMA.WEST.*'
+    request: '*:*:*'
+    outboundEndpoint: 'WMA.WEST'

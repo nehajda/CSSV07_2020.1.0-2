@@ -1,0 +1,7 @@
+!service-definition-v1
+name: OMS-2019.1.0
+description: OMS
+requests:
+- 'GS1:TransferOrder:GS1_JDA 2019.1.0'
+- 'GS1:transportInstructionMessage:GS1_JDA 2017.2.0'
+- 'GS1:transportStatusNotificationMessage:GS1_JDA 2017.2.0'

@@ -1,0 +1,4 @@
+!service-v1
+name: TMA
+serviceDefinition: TMA-2020.1.0
+enabled: true

@@ -1,0 +1,63 @@
+services:
+  # default Replay Policy
+  default:
+    # This policy allows for messages to be replayed more frequently in the beginning and less frequently over time
+    replayPolicy:
+      # Fixed positive number of retries. if -1 : infinite number of retries and if 0 : never retry
+      maxRetries: 6
+      # Period to wait before retrying in MINUTES
+      retryIntervalMins: 1 
+      # Multiplier (float) to apply to the retry-interval
+      retryIntervalMultiplier: 1.5
+      # Maximum value for retry-interval in MINUTES
+      maxRetryIntervalMins : 1
+  TMA-GLOBAL:
+    type: TMA
+    # overridden Replay Policy
+    replayPolicy:
+      maxRetries: 2
+      retryIntervalMins: 1 
+      retryIntervalMultiplier: 0.5
+      maxRetryIntervalMins : 1
+    replay:
+      request:
+        configType: http
+        #configType: https
+        https:
+          port: "9932"
+          host: "in2npdvdcssv07.dev.corp.local"
+        http:    
+          port: "9933"
+          host: "in2npdvdcssv07.dev.corp.local"
+        path: /replayEndpoint
+        basePath: /v2
+        header:
+          Accept: "application/json"
+          Content-Type: "application/json"
+          client_id: "xx"
+          client_secret: "xx"
+      
+  WMA-GLOBAL:
+    type: WMA
+    replayPolicy:
+      maxRetries: 6
+      retryIntervalMins: 1 
+      retryIntervalMultiplier: 0.5
+      maxRetryIntervalMins : 1
+    replay:
+      request:
+        #configType: https
+        configType: http
+        https:
+          port: "9930"
+          host: "in2npdvdcssv07.dev.corp.local"
+        http:    
+          port: "9931"
+          host: "in2npdvdcssv07.dev.corp.local"
+        path: /replayEndpoint
+        basePath: /v2
+        header:
+          Accept: "application/json"
+          Content-Type: "application/json"
+          client_id: "xx"
+          client_secret: "xx"

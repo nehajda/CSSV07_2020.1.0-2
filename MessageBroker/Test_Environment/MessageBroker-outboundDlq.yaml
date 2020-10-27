@@ -1,0 +1,3 @@
+outboundDlq:
+  file:
+    path: "./outbound/dlq"

@@ -1,0 +1,51 @@
+mb:
+  appName: "JMB"
+  servicesRegistryService:
+    useSRS: "false"
+    request:
+      config: "HTTPS_Request_SRS_configuration"
+      #config: "HTTP_Request_SRS_configuration"
+    remote:
+      name: "JMB1"
+      basePath: "/srs/api/v1/"
+    local:
+      fileName: "configuration/srs-config.yaml"
+    traceMessage:
+      enabled: "false"
+  gs1ack:
+    model: "bydm"
+    generateAckError: "true"
+    generateAckSuccess: "true"
+    globalReceiverFlag: "true"
+    globalReceiverName: "ACK.GLOBAL"
+  #The entryTtl for Idempotent Message Validator should be greater then the expirationInterval
+  idempotentMsgValidator:
+    IdempotentMsgValidatorFlag: "false"
+    maxEntries: "100"
+    entryTtl: "4"
+    expirationInterval: "2"
+    expirationIntervalUnit: "SECONDS"
+  inbound:
+    dlq:
+      flow: 
+        name: "inboundDeadLetterQueueSubFlow"
+  outbound:
+    concurrentThread: "5"
+    dlq:
+      flow:
+        name: "outboundDeadLetterQueueSubFlow"
+
+srsServer:
+  https:
+    host: "0.0.0.0"
+    port: "9820"
+    tls:
+      #context: "HTTPS_Request_SRS_TLS_Context"
+      context: "HTTPS_Request_SRS_TLS_Context_with_Trust"
+      keyStore:
+        path: "https/keystore.jks"
+      trustStore:
+        path: "https/truststore.jks"
+  http:
+    host: "0.0.0.0"
+    port: "9821"

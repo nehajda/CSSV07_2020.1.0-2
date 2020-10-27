@@ -1,0 +1,81 @@
+srsServer:
+  https:
+    tls:
+      keyStore:
+        password-secure: "changeme"
+        key:
+          password-secure: "changeme"
+      trustStore:
+        password-secure: "changeme"     
+
+#Endpoint secure properties
+
+#Inbound 
+server: 
+  https:
+    tls:
+      keyStore:
+        password-secure: "changeme"
+        key:
+          password-secure: "changeme"
+      trustStore:
+        password-secure: "changeme"     
+
+
+
+ftpInbound:
+  ## This should be defined in Message-broker-secure.yaml
+  password-secure: "mypassword"
+  
+jmsInbound:
+  queue:
+    ## This should be defined in Message-broker-secure.yaml
+    password-secure:  "admin"
+
+sftpInbound:
+  ## This should be defined in Message-broker-secure.yaml
+  password-secure: "mypassword"
+  
+
+dpInbound:
+  consumer:
+    password-secure: "Endpoint=sb://jdpeventhub.servicebus.windows.net/;SharedAccessKeyName=test;SharedAccessKey=Glt4a3Z3lj62V+5Ypq9zQgR71UBT6uB3ETL7Dldq450=;EntityPath=jdpevent3"
+
+#Outbound
+jmsOutbound:
+  queue:
+    ## This should be defined in Message-broker-secure.yaml
+    password-secure:  "admin"
+
+sftpOutbound:
+  ## This should be defined in Message-broker-secure.yaml
+  password-secure: "mypassword"
+  
+httpOutboundRequest:
+  https:
+    tls:
+      keyStore:
+        ## This should be defined in Message-broker-secure.yaml
+        password-secure: "changeme"
+        key:
+          ## This should be defined in Message-broker-secure.yaml
+          password-secure: "changeme"
+      trustStore:
+        ## This should be defined in Message-broker-secure.yaml
+        password-secure: "changeme"
+
+ftpOutbound:
+  ## This should be defined in Message-broker-secure.yaml
+  password-secure: "mypassword"
+
+dpOutbound:
+  publisher:
+    password-secure: "Endpoint=sb://jdpeventhub.servicebus.windows.net/;SharedAccessKeyName=test;SharedAccessKey=Glt4a3Z3lj62V+5Ypq9zQgR71UBT6uB3ETL7Dldq450=;EntityPath=jdpevent3"
+
+#Pipe Secure Propertiesaw
+
+mb:
+  pipe:
+    jms:
+      user-secure: "admin"
+      password-secure: "admin"

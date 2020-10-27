@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<code-map-configuration>
+	<code-map name="LanguageCode" bi-directional="true">
+		<code key="pt" value="BRAZILIAN_PORTUGUESE" />
+		<code key="es" value="ES-ES" />
+		<code key="fr" value="FRENCH" />
+		<code key="de" value="GERMAN" />
+		<code key="it" value="ITALIAN" />
+		<code key="ja" value="JAPANESE" />
+		<code key="ko" value="KOREAN" />
+		<code key="ru" value="RUSSIAN" />
+		<code key="zh" value="SIMPLIFIED_CHINESE" />
+		<code key="en" value="US_ENGLISH" />
+	</code-map>
+	<code-map name="TimeMeasurementUnitCode" bi-directional="true">
+		<code key="MIN" value="M" />
+		<code key="HUR" value="H" />
+		<code key="DAY" value="D" />
+	</code-map>
+	<code-map name="TradeItemIdentificationType" bi-directional="true">
+		<code key="GTIN_12" value="UPCCOD" />
+		<code key="NDC" value="NDCCOD" />
+		<code key="GTIN_13" value="EAN" />
+		<code key="GTIN_14" value="GTIN" />
+		<code key="UCC" value="UCC" />
+		<code key="ISBN_NUMBER" value="ISBN" />
+	</code-map>
+	<code-map name="weightTypeCode" bi-directional="true">
+		<code key="HEAVY" value="H" />
+		<code key="MEDIUM" value="M" />
+		<code key="LIGHT" value="L" />
+	</code-map>
+	<code-map name="InventoryStatusType" bi-directional="true">
+		<code key="AVAILABLE_FOR_SALE" value="A" />
+		<code key="CRITICAL_HOLD" value="C" />
+		<code key="DAMAGED" value="D" />
+		<code key="EXPIRED_PRODUCT" value="E" />
+		<code key="INSPECT" value="I" />
+		<code key="PUT_ASIDE" value="P" />
+		<code key="RELEASE_SHIPPING" value="R" />
+		<code key="RETURNED" value="RET" />
+		<code key="SALVAGED" value="S" />
+		<code key="TIME_HELP" value="T" />
+		<code key="ON_HOLD" value="H" />
+	</code-map>
+</code-map-configuration>

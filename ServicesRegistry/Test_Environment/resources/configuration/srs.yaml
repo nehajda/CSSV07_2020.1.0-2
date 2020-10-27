@@ -1,0 +1,23 @@
+!srs-configuration-v1
+receiverMappings:
+- receiver: 'TMS.GLOBAL'
+  service: 'TMA'
+- receiver: 'HOST.GLOBAL'
+  service: 'HOST.GLOBAL'
+- receiver: 'OMS.GLOBAL'
+  service: 'OMS.GLOBAL'
+- receiver: 'ACK.*'
+  service: 'ACK.GLOBAL'
+- receiver: 'LOC.*'
+  service: 'WMA'
+- receiver: 'LCT.GLOBAL'
+  service: 'LCT.GLOBAL'
+jmbs:
+- JMB1
+services:
+- TMA
+- HOST.GLOBAL
+- OMS.GLOBAL
+- ACK.GLOBAL
+- WMA
+- LCT.GLOBAL

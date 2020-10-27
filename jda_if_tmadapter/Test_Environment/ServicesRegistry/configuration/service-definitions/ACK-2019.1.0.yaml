@@ -1,0 +1,5 @@
+!service-definition-v1
+name: ACK-2019.1.0
+description: ACK
+requests:
+- 'GS1:applicationReceiptAcknowledgementMessage:GS1_JDA 2019.1.0'

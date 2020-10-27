@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    ==========================================================================
+                         Copyright 2019, JDA Software Group, Inc.
+                                   All Rights Reserved
+
+                      THIS IS UNPUBLISHED PROPRIETARY SOURCE CODE OF
+                                 JDA SOFTWARE GROUP, INC.
+
+
+                  The copyright notice above does not evidence any actual
+                       or intended publication of such source code.
+
+     ==========================================================================
+
+-->
+
+<uom-configuration>
+  <decimal-format>#0.#####</decimal-format>
+  <base-uom code="MTR" name="metre" symbol="m" category-name="Length">
+    <uom code="KMT" name="kilometre" symbol="km" multiplier="1e-3"/>
+    <uom code="SMI" name="mile (statute mile)" symbol="mile" multiplier="6.21371192237334e-4"/>
+    <uom code="FOT" name="foot" symbol="ft" multiplier="3.280839895013123"/>
+    <uom code="INH" name="inch" symbol="in" multiplier="39.37007874015748"/>
+    <uom code="DMT" name="decimetre" symbol="dm" multiplier="1e1"/>
+  </base-uom>
+  <base-uom code="MTQ" name="cubic metre" symbol="m³" category-name="Volume">
+    <uom code="FTQ" name="cubic foot" symbol="km" multiplier="35.31466672148859"/>
+    <uom code="INQ" name="cubic inch" symbol="in³" multiplier="61023.74409473228"/>
+    <uom code="DMQ" name="cubic decimetre" symbol="dm³" multiplier="1000"/>
+  </base-uom>
+  <base-uom code="KGM" name="kilogram" symbol="kg" category-name="Weight">
+    <uom code="LBR" name="pound" symbol="lb" multiplier="2.204622621848776"/>
+    <uom code="ONZ" name="ounce (avoirdupois)" symbol="oz" multiplier="35.27396194958041"/>
+    <uom code="LTN" name="ton (UK) or long ton (US)" symbol="ton (UK)" multiplier="9.842065276110606e-4"/>
+    <uom code="GRM" name="gram" symbol="g" multiplier="1000"/>
+    <uom code="TNE" name="tonne (metric ton)" symbol="t" multiplier="0.001"/>
+  </base-uom>
+</uom-configuration>

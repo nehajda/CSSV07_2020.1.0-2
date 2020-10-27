@@ -1,0 +1,4 @@
+!service-v1
+name: LCT.GLOBAL
+serviceDefinition: LCT-2020.1.0.2
+enabled: true

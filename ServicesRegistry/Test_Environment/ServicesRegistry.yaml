@@ -1,0 +1,44 @@
+# Properties for Services Registry Service / Routing and Version Configuration Service
+srs:
+  rootDirectory: configuration
+
+server:
+  
+  listener: 
+  #Controls whether api endpoint accepts HTTP or HTTPS
+    config: "HTTPS_Listener_config"
+    #config: "HTTP_Listener_config"
+    
+  https:
+    host: "0.0.0.0"
+    port: "9820"
+    tls:
+      keyStore:
+        path: "keystore.jks"
+        key:
+      trustStore:
+        path: "truststore.jks"
+        
+  http:
+    host: "0.0.0.0"
+    port: "9821"
+    
+eframework:
+  applicationId: srs
+  errorReport:
+    enabled: true
+    errorReportPath: ./errorReports
+    title: SRS Error Report
+    htmlTemplatePath: errorReportTemplate.html
+    payload.transaction.size: 2048
+cps:
+  useCps: "true"  # if false then CPS is not called and files are loaded locally
+  cpsBaseUrl: "https://in2npdvdcssv07.dev.corp.local:9810"
+  applicationName: “ServicesRegistry”
+  profiles: "*"
+  version: "*"
+  localMode: "false"
+  localModePath: ""
+  enableCaching: "false"
+  enableFailover: "false"
+  cachingDir: ""

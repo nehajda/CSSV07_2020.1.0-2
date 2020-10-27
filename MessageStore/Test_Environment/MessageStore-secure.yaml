@@ -1,0 +1,25 @@
+MSDatabase:
+  user-secure: "MSGSTR_GOLD_02"
+  password-secure: "MSGSTR_GOLD_02"
+
+
+server:
+
+  https:
+    tls:
+      keyStore:
+        password-secure: "changeme"
+        key:
+          password-secure: "changeme"
+      trustStore:
+        password-secure: "changeme"
+        
+  request:
+    replay:
+      tls:
+        keyStore:
+          password-secure: "changeme"
+          key:
+            password-secure: "changeme"
+        trustStore:  
+          password-secure: "changeme"    

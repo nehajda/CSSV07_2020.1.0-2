@@ -1,0 +1,22 @@
+# This file governs the message conversion.
+# A Receiver willing to convert a single(or multiple) message type need to expose the config as below
+# Messages to be converted for reciver set 
+# <ReceiverName>:<MessageType>:<ExpectedModel>
+
+#<ReceiverName> - If similar conversions are reequired for multiple receivers, one can mention them as :  <Receievr1>|<Receiver2>|<Receiver3>
+#<MessageType> - if simialr conversion is required for multiple messageTypes , one can mention them as :  <MessageType1>|<MessageType2>|<MessageType3>
+#<ExpectedModel> - should be either GS1 or BYDM
+ 
+# Below reads as - For receiver list <Wma.EAST|WMA.WEST> , list of message types <itemMessage|locationMessage|orderMessage> should be converted to BYDM model.
+
+- 'Wma.EAST|WMA.WEST:itemMessage|locationMessage|partyMessage|orderMessage:BYDM'
+
+# Below is wild card matching example. All messageTypes for WMA.EAST should be converted to GS1. 
+# This is a 1st match list. Ops need to make sure that wild card entry is appearing after named lists.
+# As if we put line 19 before line 12 , we wil lnot get the desired result as all messageTypes will be matched for GS1 
+# where as intention was to convert <itemMessage|locationMessage|orderMessage> to BYDM and rest to GS1 but since wildcard matches all , named list will never be matched.
+
+- 'LOC.*:*:BYDM'
+- 'TMS.GLOBAL:*:BYDM'
+- 'HOST.GLOBAL:*:GS1'
+- 'ACK.GLOBAL:*:GS1'

@@ -1,0 +1,4 @@
+!service-v1
+name: HOST.GLOBAL
+serviceDefinition: HOST-2019.1.0
+enabled: true

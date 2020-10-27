@@ -1,0 +1,8 @@
+eframework:
+  applicationId: srs
+  errorReport:
+    enabled: true
+    errorReportPath: ./errorReports
+    title: SRS Error Report
+    htmlTemplatePath: errorReportTemplate.html
+    payload.transaction.size: 2048

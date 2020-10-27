@@ -1,0 +1,19 @@
+!static-receivers-v1
+rules:
+
+# Send to AUDIT any message
+- actions:
+  - operator: ADD
+    receivers:
+    - AUDIT
+
+# Redirect dispatch advice from WMA.WEST.3 to WMA.WEST.4
+- request: "GS1:despatchAdviceMessage:*"
+  receiver: "WMA.WEST.3"
+  actions:
+  - operator: REMOVE
+    receivers:
+    - WMA.WEST.3
+  - operator: ADD
+    receivers:
+    - WMA.WEST.4

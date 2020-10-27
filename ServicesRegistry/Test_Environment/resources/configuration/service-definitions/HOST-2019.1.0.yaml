@@ -1,0 +1,13 @@
+!service-definition-v1
+name: HOST-2019.1.0
+description: HOST
+requests:
+- 'GS1:TransferOrder:GS1_JDA 2019.1.0'
+- 'GS1:OrderRelease:GS1_JDA 2019.1.0'
+- 'GS1:despatchAdviceMessage:GS1_JDA 2019.1.1'
+- 'GS1:transportPickUpDropOffConfirmationMessage:GS1_JDA 2017.2.0'
+- 'GS1:warehousingOutboundInstructionMessage:GS1_JDA 2019.1.1'
+- 'GS1:warehousingOutboundNotificationMessage:GS1_JDA 2019.1.1'
+- 'GS1:receivingAdviceMessage:GS1_JDA 2019.1.1'
+- 'GS1:transportInstructionMessage:GS1_JDA 2017.2.0'
+- 'GS1:transportStatusNotificationMessage:GS1_JDA 2019.1.1'

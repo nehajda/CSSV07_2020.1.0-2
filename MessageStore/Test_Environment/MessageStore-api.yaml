@@ -1,0 +1,6 @@
+# Auto discovery needs to be configured through mulesoft API manager if oAuth needs to be enabled. 
+
+# API Id needed to connect to API Manager.
+
+api:
+  id: "16146789"

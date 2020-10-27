@@ -1,0 +1,4 @@
+!service-v1
+name: WMA
+serviceDefinition: WMA
+enabled: true

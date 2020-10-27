@@ -1,0 +1,18 @@
+!jmb-configuration-v1
+name: JMB
+outboundEndpoints:
+- name: WMA
+  flow:
+    name: sendOutboundMessageFlow
+- name: AUDIT
+  flow:
+    name: flowJmsOut
+    parameters:
+    - name: queue
+      value: jms.flow.audit
+- name: errorFlow
+  flow:
+    name: flowJmsOut
+    parameters:
+    - name: queue
+      value: DLQ
