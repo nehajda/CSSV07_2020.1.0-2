@@ -1,17 +1,21 @@
-# Type of queue Message Broker should use
-# Accepted values: VM, JMS
 mb:
   pipe:
     queue:
+#Please mention the correct queue type and then pass the appropriated properties.
       type: "JMS"
-
-#Message Broker JMS Queue with AcitveMQ Properties
+    vm:
+      state: "stopped"
     jms:
+      state: "started"
+      checkConnectivity: true
       queueName: "MB_PIPE"
-      brokerURL: "failover://tcp://in2npdvdcssv07:61616"
+## Please uncomment the property and update the broker url      
+      brokerURL: "failover:tcp://in2npdvdcssv07:61616"
       maxConnections: "30"
       concurrentConsumers: "30"
       initialRedeliveryDelay: "20000"
       redeliveryDelay: "20000"
       sessionCacheSize: "100"
       maximumRedeliveries: "-1"
+
+    

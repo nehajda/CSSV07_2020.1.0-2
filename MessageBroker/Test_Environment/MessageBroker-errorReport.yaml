@@ -1,15 +1,15 @@
 # Error Report configuration
 eframework:
-  applicationId: "jda-message-broker"
+  applicationId: "connect-message-broker"
   errorReport:
     success:
       status: "RECEIVED"
     error:
       status: "ERROR"      
     enabled: "false"
-    errorReportPath: "../logs/errorReports/jda-message-broker"
+    errorReportPath: "../logs/errorReports/connect-message-broker"
     htmlTemplatePath: "errorReportTemplate.html"
-    title: "JDA Message Broker Error"
+    title: "connect Message Broker Error"
     payload:
       transaction:
         size: "2048"

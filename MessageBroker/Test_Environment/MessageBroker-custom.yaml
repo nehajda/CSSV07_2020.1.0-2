@@ -1,6 +1,91 @@
+#### This is a template file and will be shifted to confluence later on, All these properties have default values and MB will work fine with a blank configuration file.
+#### This file should be used to pick up the relevant properties for a connecter
+#### Password keys are defined in this template to provide an aggregated view while mentioning this in CPS - you need to move them to MessageBroker-secure.yaml
+
 # Properties needed for custom endpoints and interceptors
+# Choose from these properties while configuring MB
 
+# Flow Enablement
 
+flow:
+  inbound:
+    ftp:
+      state: "stopped"
+      checkConnectivity: false
+    sftp:
+      state: "stopped"
+      checkConnectivity: false   
+    http:
+      state: "stopped"
+      #checkConnectivity: false
+    file:
+      state: "stopped"
+    jmsAMQ:
+      state: "started"
+      checkConnectivity: true
+    dp:
+      state: "stopped"
+      checkConnectivity: false
+  outbound:
+    ftp:
+      state: "stopped"
+      checkConnectivity: false
+    sftp:
+      state: "stopped"
+      checkConnectivity: false   
+    http:
+      state: "stopped"
+      #checkConnectivity: false
+    file:
+      state: "stopped"
+      #checkConnectivity: false
+    jmsAMQ:
+      state: "started"
+      checkConnectivity: true
+    dp:
+      state: "stopped"
+      checkConnectivity: false
+
+# ---------------------------------------------------------------------------------------------------------
+# Model Converter
+
+modelConverter:
+  isRequired: true
+  config: "configuration/converter-config.yaml"
+  canModelList: "BYDM 2020.2.0"
+  canModelService: 
+    ## Use local Canmodel - For testing
+    config: "Local"
+    ## Use Can model Service with File Store Cache
+    #config: "Remote_FileStore_Cache"
+    ## Use Can model Service with Object Store Cache
+    #config: "Remote_ObjectStore_Cache"
+    requester:
+      #Controls whether to call an api with HTTP or HTTPS
+      config: "HTTPS_CanModel_Request_configuration"
+      #config: "HTTP_CanModel_Request_configuration" 
+      path: "/canmodel/api/v1/canModels/" 
+      https:
+        host: "127.0.0.1"
+        port: "9860"
+        tls:
+          insecure: true
+          keyStore:
+            path: "https/keystore.jks"
+            ## This should be defined in Message-broker-secure.yaml
+            password-secure: "changeme"
+            key:
+              ## This should be defined in Message-broker-secure.yaml
+              password-secure: "changeme"
+          trustStore:
+            path: "https/truststore.jks"
+            ## This should be defined in Message-broker-secure.yaml
+            password-secure: "changeme"
+          context: "HTTPS_CanModel_Request_TLS_Context"
+          #context: "HTTPS_CanModel_Request_TLS_Context_with_Trust"
+      http:
+        host: "127.0.0.1"
+        port: "9861"
 # ---------------------------------------------------------------------------------------------------------
 # Inbound Endpoint Properties
 
@@ -15,47 +100,141 @@ server:
     port: "9910"
     tls:
       keyStore:
-        path: "keystore.jks"
-        key:
+        path: "https/keystore.jks"
       trustStore:
-        path: "truststore.jks"
+        path: "https/truststore.jks"
+      context: "HTTPS_Listener_TLS_Context"
+      #context: "HTTPS_Listener_TLS_Context_with_Trust"
   http:
     host: "0.0.0.0"
     port: "9911"
 
 
+fileInbound:
+  path: "./path/to/files"
+  pollingFrequency: 1000 
+  fileAge: 500
+  
+ftpInbound:
+  host: "localhost"
+  user: "myuser"
+  port: 21
+  path: "/path/to/files"
+  passive: true
+  responseTimeout: 10000
+
+jmsInbound:
+  queue:
+    name: "MB_INBOUND"
+    brokerURL: "tcp://In2npdvdcssv07:61616"
+    user: "admin"
+    maxConnections: 30
+    concurrentConsumers: 30
+    initialRedeliveryDelay: 20000
+    redeliveryDelay: 20000
+    sessionCacheSize: 100
+    maximumRedeliveries: 5
+      
+sftpInbound:
+  host: "localhost"
+  user: "myuser"
+  ## This should be defined in Message-broker-secure.yaml
+  password-secure: "mypassword"
+  port: 21
+  path: "/path/to/files"
+  responseTimeout: 10000
+
+dpInbound:
+  bootstrapServers: "jdpeventhub.servicebus.windows.net:9093"
+  tenantId: "t30f011232daea2f9"
+  consumer:
+    timeout: "120000"
+    alllowAllEntities: true
+    globalReceiver: "LCT.GLOBAL"
+    receivers:
+      item: "LCT.GLOBAL, LSR.GLOBAL"
+      location: "LCT.GLOBAL"
+    partitions: "1"
+    groupId: "messageBroker"
+    topic: "jdpevent3"
+    protocol:
+      name: "SASL_SSL"
+      mechanism: "PLAIN"
+      
+     
 
 # ---------------------------------------------------------------------------------------------------------
 # Outbound Endpoint Properties
 
-# JMS inbound endpoint
-jmsInbound:
-  queue:
-    brokerURL: "failover://tcp://in2npdvdcssv07:61616"
-    user: "admin"
-    password-secure: "admin"
-    maxConnections: "30"
-    concurrentConsumers: "30"
-    initialRedeliveryDelay: "20000"
-    redeliveryDelay: "20000"
-    sessionCacheSize: "100"
-    maximumRedeliveries: "5"
-    
-# JMS outbound endpoint
+## File Outbound Properties
+    # file outbound path comes from the parameters set in config.json
+
+fileOutbound:
+  path: "./path/to/files"
+  pollingFrequency: 1000 
+  fileAge: 500
+  
 jmsOutbound:
   queue:
-    brokerURL: "failover://tcp://in2npdvdcssv07:61616"
+    brokerURL: "tcp://In2npdvdcssv07:61616"
     user: "admin"
-    password-secure: "admin"
-    maxConnections: "30"
-    concurrentConsumers: "30"
-    initialRedeliveryDelay: "20000"
-    redeliveryDelay: "20000"
-    sessionCacheSize: "100"
-    maximumRedeliveries: "5"
+    maxConnections: 30
+    concurrentConsumers: 30
+    initialRedeliveryDelay: 20000
+    redeliveryDelay: 20000
+    sessionCacheSize: 100
+    maximumRedeliveries: 5
 
+sftpOutbound:
+  host: "localhost"
+  user: "myuser"
+  port: 21
+   
+httpOutboundRequest:
+  requester: 
+  #Controls whether to call an api with HTTP or HTTPS
+    config: "HTTPS_Request_configuration"
+     #config: "HTTP_Request_configuration"  
+  https:
+    host: "127.0.0.1"
+    port: "9910"
+    tls:
+      keyStore:
+        path: "https/keystore.jks"
+        ## This should be defined in Message-broker-secure.yaml
+        password-secure: "changeme"
+        key:
+          ## This should be defined in Message-broker-secure.yaml
+          password-secure: "changeme"
+      trustStore:
+        path: "https/truststore.jks"
+        ## This should be defined in Message-broker-secure.yaml
+        password-secure: "changeme"
+      context: "HTTPS_OutboundRequest_TLS_Context"
+      #context: "HTTPS_Listener_TLS_Context_with_Trust"
+  http:
+    host: "127.0.0.1"
+    port: "9911"
+        
+ftpOutbound:
+  host: "localhost"
+  user: "myuser"
+  port: "21"
+  ## This should be defined in Message-broker-secure.yaml
+  password-secure: "mypassword"
 
-
+dpOutbound:
+  bootstrapServers: "jdpeventhub.servicebus.windows.net:9093"
+  #checkConnectivity: "false"
+  #reconnectFrequency: "2000"
+  #reconnectionAttempts: "1"
+  publisher:
+    topic: "jdpevent3"
+    password-secure: "Endpoint=sb://jdpeventhub.servicebus.windows.net/;SharedAccessKeyName=test;SharedAccessKey=Glt4a3Z3lj62V+5Ypq9zQgR71UBT6uB3ETL7Dldq450=;EntityPath=jdpevent3"
+    protocol:
+      name: "SASL_SSL"
+      mechanism: "PLAIN"
+      
 # ---------------------------------------------------------------------------------------------------------
 # Interceptor Properties
 
