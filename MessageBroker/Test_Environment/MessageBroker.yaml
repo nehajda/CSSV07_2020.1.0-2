@@ -13,7 +13,6 @@ mb:
     traceMessage:
       enabled: "false"
   gs1ack:
-    model: "bydm"
     generateAckError: "true"
     generateAckSuccess: "true"
     globalReceiverFlag: "true"
@@ -40,12 +39,11 @@ srsServer:
     host: "0.0.0.0"
     port: "9820"
     tls:
-      #context: "HTTPS_Request_SRS_TLS_Context"
-      context: "HTTPS_Request_SRS_TLS_Context_with_Trust"
       keyStore:
-        path: "https/keystore.jks"
+        path: "keystore.jks"
+        key:
       trustStore:
-        path: "https/truststore.jks"
+        path: "truststore.jks"
   http:
     host: "0.0.0.0"
     port: "9821"
