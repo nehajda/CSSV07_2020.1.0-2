@@ -42,10 +42,5 @@
 		<code key="SALVAGED" value="S" />
 		<code key="TIME_HELP" value="T" />
 		<code key="ON_HOLD" value="H" />
-	</code-map>
-	<code-map name="UOM" bi-directional="true">	
-        <code key="EA" value="EA" />	
-        <code key="CS" value="CS,CAR,BOX" />	
-        <code key="PA" value="PA,PF,PBE" />	
-    </code-map>
+	</code-map>	
 </code-map-configuration>
