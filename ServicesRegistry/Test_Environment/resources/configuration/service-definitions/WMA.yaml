@@ -39,6 +39,8 @@ inbound:
       flow: 'flow-in-item'
     - message: 'GS1:itemMessage:GS1_JDA 2020.2.0'
       flow: 'flow-in-item'
+    - message: 'GS1:locationMessage:GS1_JDA 2020.2.0'
+      flow: 'flow-in-location'
       
 outbound:
   responses:
