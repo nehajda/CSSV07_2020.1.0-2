@@ -4,9 +4,7 @@
         "isBiDirectional": true,
         "codes": [           
           { "key": "EA", "value": "EA" }, 
-          { "key": "CS", "value": "CS" }, 
-          { "key": "CAR", "value": "CS" }, 
-          { "key": "BOX", "value": "CS" }, 
+          { "key": "CS", "value": "CS" },  
           { "key": "PA", "value": "PA" }, 
           { "key": "PF", "value": "PA" }, 
           { "key": "PBE", "value": "PA" }, 
