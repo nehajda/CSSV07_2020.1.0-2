@@ -37,9 +37,17 @@ inbound:
       flow: 'flow-in-item'
     - message: 'GS1:itemMessage:GS1_JDA 2019.1.1'
       flow: 'flow-in-item'
-    - message: 'GS1:billOfMaterialMessage:GS1_JDA 2020.2.0'
-      flow: 'flow-in-billofMaterial'
-      
+    - message: 'GS1:itemMessage:GS1_JDA 2020.2.0'
+      flow: 'flow-in-item'
+    - message: 'GS1:TransferOrder:GS1_JDA 2020.2.0'
+      flow: 'flow-in-transferOrder'
+    - message: 'GS1:PurchaseOrder:GS1_JDA 2020.2.0'
+      flow: 'flow-in-purchaseOrder'
+    - message: 'GS1:OrderRelease:GS1_JDA 2020.2.0'
+      flow: 'flow-in-customerOrder'
+    - message: 'GS1:ReturnOrder:GS1_JDA 2020.2.0'
+      flow: 'flow-in-returnOrder'
+            
 outbound:
   responses:
     - message: 'GS1:TransferOrder:GS1_JDA 2019.1.0'
