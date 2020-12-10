@@ -59,6 +59,8 @@ inbound:
       flow: 'BYDM:recShipMessage:commonSubFlow'
     - message: 'BYDM:plannedSupply-VEHICLE_LOAD:BYDM 2020.2.0'
       flow: 'BYDM:vehicleLoadMessage:commonSubFlow'
+    - message: 'BYDM:receivingAdvice:BYDM 2020.2.0'
+      flow: 'BYDM:receivingAdviceMessage:commonSubFlow'
 outbound:
   responses:
     - message: 'BYDM:IBATCH:BYDM 2020.2.0'
