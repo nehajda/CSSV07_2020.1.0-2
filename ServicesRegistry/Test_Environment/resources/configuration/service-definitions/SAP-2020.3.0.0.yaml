@@ -191,3 +191,5 @@ outbound:
       flow: 'srs-common-outbound-bydm-message-subFlow'
     - message: 'BYDM:POSH-BULKCSV:BYDM 2020.2.0'
       flow: 'srs-common-outbound-bydm-message-subFlow'
+requests:
+- 'GS1:receivingAdviceMessage:GS1_JDA 2020.2.0'
