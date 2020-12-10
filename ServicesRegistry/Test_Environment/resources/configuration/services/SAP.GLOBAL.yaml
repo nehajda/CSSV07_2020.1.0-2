@@ -14,5 +14,5 @@
 #*/
 !service-v1
 name: SAP.GLOBAL
-serviceDefinition: SAP-2020.2.0.0
+serviceDefinition: SAP-2020.3.0.0
 enabled: true
