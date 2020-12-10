@@ -32,6 +32,12 @@ outboundEndpoints:
     parameters:
     - name: "queue"
       value: "MB-WMA"
+- name: SAP
+  flow:
+    name: jmsOutboundFlow
+    parameters:
+    - name: "queue"
+      value: "MB-SAP"
 - name: ACK
   flow:
     name: jmsOutboundFlow
@@ -177,3 +183,6 @@ outboundMappings:
   - receiver: 'ACK.GLOBAL'
     request: '*:*:*'
     outboundEndpoint: 'ACK'
+  - receiver: 'SAP.GLOBAL'
+    request: '*:*:*'
+    outboundEndpoint: 'SAP'
