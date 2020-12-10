@@ -12,6 +12,8 @@ receiverMappings:
   service: 'WMA'
 - receiver: 'LCT.GLOBAL'
   service: 'LCT.GLOBAL'
+- receiver: 'SAP.GLOBAL'
+  service: 'SAP.GLOBAL'
 jmbs:
 - JMB1
 services:
@@ -21,3 +23,4 @@ services:
 - ACK.GLOBAL
 - WMA
 - LCT.GLOBAL
+- SAP.GLOBAL
