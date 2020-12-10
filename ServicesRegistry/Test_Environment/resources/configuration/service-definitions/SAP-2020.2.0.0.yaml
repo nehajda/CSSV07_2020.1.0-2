@@ -13,15 +13,7 @@
 #* //==========================================================================
 #*/
 !service-definition-v1
-name: TMS-2020.1.0.0
-description: TMS adapter - request details wrt SAP adapter
+name: SAP-2020.2.0.0
+description: SAP adapter - request details wrt SAP adapter
 requests:
-- 'GS1:DELIVERY:GS1_JDA 2020.1.0'
-- 'GS1:ITEM:GS1_JDA 2020.1.0'
-- 'GS1:ITEMIDOC:GS1_JDA 2020.1.0'
-- 'GS1:LOC:GS1_JDA 2020.1.0'
-- 'GS1:CUSMASLOCIDOC:GS1_JDA 2020.1.0'
-- 'GS1:VENMASLOCIDOC:GS1_JDA 2020.1.0'
-- 'GS1:TPSLOCIDOC:GS1_JDA 2020.1.0'
-- 'GS1:CUSMASPTYIDOC:GS1_JDA 2019.1.1'
-- 'GS1:VENMASPTYIDOC:GS1_JDA 2019.1.1'
+- 'GS1:receivingAdviceMessage:GS1_JDA 2020.2.0'
