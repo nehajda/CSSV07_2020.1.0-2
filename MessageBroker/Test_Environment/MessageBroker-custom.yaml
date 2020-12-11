@@ -126,7 +126,7 @@ ftpInbound:
 jmsInbound:
   queue:
     name: "MB_INBOUND"
-    brokerURL: "tcp://In2npdvdcssv07:61616"
+    brokerURL: "tcp://in2npdvdcssv07:61616"
     user: "admin"
     maxConnections: 30
     concurrentConsumers: 30
@@ -176,7 +176,7 @@ fileOutbound:
   
 jmsOutbound:
   queue:
-    brokerURL: "tcp://In2npdvdcssv07:61616"
+    brokerURL: "tcp://in2npdvdcssv07:61616"
     user: "admin"
     maxConnections: 30
     concurrentConsumers: 30
