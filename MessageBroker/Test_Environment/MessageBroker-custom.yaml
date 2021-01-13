@@ -52,7 +52,7 @@ flow:
 modelConverter:
   isRequired: true
   config: "configuration/converter-config.yaml"
-  canModelList: "BYDM 2020.3.0"
+  canModelList: "BYDM 2020.3.0,BYDM 2020.3.2"
   canModelService: 
     ## Use local Canmodel - For testing
     config: "Local"
