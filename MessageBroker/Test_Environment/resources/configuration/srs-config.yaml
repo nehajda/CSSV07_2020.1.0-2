@@ -33,6 +33,41 @@ outboundEndpoints:
     - name: "queue"
       value: "MB-WMA"
   interceptorFlow: interceptorMultipleDestinationFilterSubFlow
+- name: WMA1
+  flow:
+    name: jmsOutboundFlow
+    parameters:
+    - name: "queue"
+      value: "MB-WMA"
+  interceptorFlow: interceptorMultipleDestinationFilterSubFlow
+- name: WMA2
+  flow:
+    name: jmsOutboundFlow
+    parameters:
+    - name: "queue"
+      value: "MB-WMA"
+  interceptorFlow: interceptorMultipleDestinationFilterSubFlow
+- name: WMA3
+  flow:
+    name: jmsOutboundFlow
+    parameters:
+    - name: "queue"
+      value: "MB-WMA"
+  interceptorFlow: interceptorMultipleDestinationFilterSubFlow
+- name: WMA4
+  flow:
+    name: jmsOutboundFlow
+    parameters:
+    - name: "queue"
+      value: "MB-WMA"
+  interceptorFlow: interceptorMultipleDestinationFilterSubFlow
+- name: WMA5
+  flow:
+    name: jmsOutboundFlow
+    parameters:
+    - name: "queue"
+      value: "MB-WMA"
+  interceptorFlow: interceptorMultipleDestinationFilterSubFlow
 - name: SAP
   flow:
     name: jmsOutboundFlow
@@ -78,16 +113,16 @@ outboundMappings:
     outboundEndpoint: 'WMA'    
   - receiver: 'LOC.DC0002'
     request: '*:*:*'
-    outboundEndpoint: 'WMA'
+    outboundEndpoint: 'WMA1'
   - receiver: 'LOC.DC1001'
     request: '*:*:*'
-    outboundEndpoint: 'WMA'
+    outboundEndpoint: 'WMA2'
   - receiver: 'LOC.DC1002'
     request: '*:*:*'
-    outboundEndpoint: 'WMA'
+    outboundEndpoint: 'WMA3'
   - receiver: 'LOC.DC1003'
     request: '*:*:*'
-    outboundEndpoint: 'WMA'
+    outboundEndpoint: 'WMA4'
   - receiver: 'LOC.E1200'
     request: '*:*:*'
     outboundEndpoint: 'WMA'
@@ -102,7 +137,7 @@ outboundMappings:
     outboundEndpoint: 'WMA'
   - receiver: 'LOC.DC1006'
     request: '*:*:*'
-    outboundEndpoint: 'WMA'
+    outboundEndpoint: 'WMA5'
   - receiver: 'LOC.S0001'
     request: '*:*:*'
     outboundEndpoint: 'STR'
