@@ -237,7 +237,30 @@ dpOutbound:
       
 # ---------------------------------------------------------------------------------------------------------
 # Interceptor Properties
+wma:
+  messageStore:
+    enabled: true
 
+messageStore:
+  enabled: true
+  protocol:
+    config: "MessageStore_HTTPS"
+  hostName: "in2npdvdcssv07"
+  port: "9830"
+  storeBasePath: "/messagestore/api/v3"
+  serviceName: "MB-GLOBAL"
+  serviceType: "MB"
+  serviceInstance: "MB"
+  serviceHostName: "server.host"
+  serviceNamedVersion: "MB-2020.1.0"
+  testMessage: false
+  failWhenDuplicate: true
+  responseTimeout: "60000"
+  connectionIdleTimeout: "60000"
+  https:
+    tls:
+      trustStore:
+        path: "truststore.jks"
 
 
 

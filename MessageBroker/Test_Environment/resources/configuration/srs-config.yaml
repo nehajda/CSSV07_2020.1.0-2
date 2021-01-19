@@ -32,6 +32,7 @@ outboundEndpoints:
     parameters:
     - name: "queue"
       value: "MB-WMA"
+  interceptorFlow: interceptorMultipleDestinationFilterSubFlow
 - name: SAP
   flow:
     name: jmsOutboundFlow

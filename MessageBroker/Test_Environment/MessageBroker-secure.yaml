@@ -79,3 +79,15 @@ mb:
     jms:
       user-secure: "admin"
       password-secure: "admin"
+      
+
+# ---------------------------------------------------------------------------------------------------------
+# Interceptor Properties
+
+messageStore:
+   clientId-secure: "xx"
+   clientSecret-secure: "xx"
+   https:
+    tls:
+      trustStore:
+        password-secure: "changeme"
