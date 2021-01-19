@@ -13,6 +13,7 @@ mb:
       brokerURL: "failover:tcp://in2npdvdcssv07:61616"
       maxConnections: "30"
       concurrentConsumers: "30"
+      primaryNode: false
       initialRedeliveryDelay: "20000"
       redeliveryDelay: "20000"
       sessionCacheSize: "100"
