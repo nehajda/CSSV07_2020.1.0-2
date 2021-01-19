@@ -130,6 +130,7 @@ jmsInbound:
     user: "admin"
     maxConnections: 30
     concurrentConsumers: 30
+    primaryNode: false
     initialRedeliveryDelay: 20000
     redeliveryDelay: 20000
     sessionCacheSize: 100
