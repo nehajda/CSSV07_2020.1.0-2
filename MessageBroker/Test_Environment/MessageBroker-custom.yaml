@@ -62,8 +62,8 @@ modelConverter:
     #config: "Remote_ObjectStore_Cache"
     requester:
       #Controls whether to call an api with HTTP or HTTPS
-      config: "HTTPS_CanModel_Request_configuration"
-      #config: "HTTP_CanModel_Request_configuration" 
+      #config: "HTTPS_CanModel_Request_configuration"
+      config: "HTTP_CanModel_Request_configuration" 
       path: "/canmodel/api/v1/canModels/" 
       https:
         host: "127.0.0.1"
