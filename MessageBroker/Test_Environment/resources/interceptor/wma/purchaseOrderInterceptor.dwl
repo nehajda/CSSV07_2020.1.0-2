@@ -1,7 +1,7 @@
 %dw 2.0
 output application/xml
 
-var destination = (vars.jciOutboundReceivers[0] splitBy ".")[1]
+var destination = vars.jciOutboundReceivers map (($ splitBy  ".")[1])
 
 fun filterOrder(order,linenumber,parentkey) = order mapObject(value,key) -> {               // Filter the jdaOrderExtension.orderLineItem and orderLineItem based on the receiver
     (
@@ -9,7 +9,7 @@ fun filterOrder(order,linenumber,parentkey) = order mapObject(value,key) -> {   
             (key): value
         else 
             (if(key ~= "orderLineItem" and parentkey ~= "order")                           // check if its orderLineItem
-                ((key): value) if (value.orderLineItemDetail.orderLogisticalInformation.shipTo.additionalPartyIdentification == destination)
+                ((key): value) if (destination contains value.orderLineItemDetail.orderLogisticalInformation.shipTo.additionalPartyIdentification)
             else if (key ~= "orderLineItem" and parentkey ~= "jdaOrderExtension")          // CHeck if its extension orderlineitem
                 ((key): value) if(linenumber contains value.lineItemNumber)
             else
@@ -19,7 +19,7 @@ fun filterOrder(order,linenumber,parentkey) = order mapObject(value,key) -> {   
         )
 }
 
-fun destinorder(order) = order.*orderLineItem filter($.orderLineItemDetail.orderLogisticalInformation.shipTo.additionalPartyIdentification == destination)
+fun destinorder(order) = order.*orderLineItem filter(destination contains $.orderLineItemDetail.orderLogisticalInformation.shipTo.additionalPartyIdentification)
 
 ---
 

@@ -2,7 +2,7 @@
 output application/xml
 ---
 if(vars.jci.messageSubType == "transportLoadMessage")
-	if(isEmpty(payload..*transportLoad.transportLoadShipment[0]))
+	if(isEmpty(payload..*transportLoad[0]))
 		vars.runningPayload
 	else
 		payload
