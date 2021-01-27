@@ -243,7 +243,7 @@ messageStore:
   enabled: true
   protocol:
     config: "MessageStore_HTTPS"
-  hostName: "IN2NPDVDCSSV07"
+  hostName: "IN2NPDVDCSSV07.dev.corp.local"
   port: "9830"
   storeBasePath: "/messagestore/api/v3"
   serviceName: "MB-GLOBAL"
