@@ -125,7 +125,7 @@ ftpInbound:
 
 jmsInbound:
   queue:
-    name: "HOST-MB"
+    name: MB_INBOUND
     brokerURL: "tcp://in2npdvdcssv07:61616"
     user: "admin"
     maxConnections: 30
