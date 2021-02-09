@@ -9,7 +9,7 @@ fun filterOrder(order,linenumber,parentkey) = order mapObject(value,key) -> {   
             (key): value
         else 
             (if(key ~= "orderLineItem" and parentkey ~= "order")                           // check if its orderLineItem
-                ((key): value) if (destination contains value.orderLineItemDetail.orderLogisticalInformation.shipTo.additionalPartyIdentification)
+                ((key): value) if (destination contains (value.orderLineItemDetail.orderLogisticalInformation.shipTo.*additionalPartyIdentification[?($.@additionalPartyIdentificationTypeCode == "FOR_INTERNAL_USE_1")][0] default value.orderLineItemDetail.orderLogisticalInformation.shipTo.*additionalPartyIdentification[?($.@additionalPartyIdentificationTypeCode == "UNKNOWN")][0]))
             else if (key ~= "orderLineItem" and parentkey ~= "jdaOrderExtension")          // CHeck if its extension orderlineitem
                 ((key): value) if(linenumber contains value.lineItemNumber)
             else
@@ -19,7 +19,7 @@ fun filterOrder(order,linenumber,parentkey) = order mapObject(value,key) -> {   
         )
 }
 
-fun destinorder(order) = order.*orderLineItem filter(destination contains $.orderLineItemDetail.orderLogisticalInformation.shipTo.additionalPartyIdentification)
+fun destinorder(order) = order.*orderLineItem filter(destination contains ($.orderLineItemDetail.orderLogisticalInformation.shipTo.*additionalPartyIdentification[?($.@additionalPartyIdentificationTypeCode == "FOR_INTERNAL_USE_1")][0] default $.orderLineItemDetail.orderLogisticalInformation.shipTo.*additionalPartyIdentification[?($.@additionalPartyIdentificationTypeCode == "UNKNOWN")][0]))
 
 ---
 

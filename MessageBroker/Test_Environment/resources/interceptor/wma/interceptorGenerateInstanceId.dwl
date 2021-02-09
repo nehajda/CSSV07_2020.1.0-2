@@ -10,15 +10,12 @@ fun generateInstanceId(sbdh,parentKey) = sbdh mapObject(sbdhvalue,sbdhkey) -> {(
     else
         (sbdhkey): generateInstanceId(sbdhvalue,sbdhkey)
 )}
-fun removenullvalues(value) = value mapObject(value,key) -> {(
-    if((value is Object) and (not isEmpty(value)) and value != null)
-        (key): removenullvalues(value)
-    else if(value is String and value != '')
-        (key): value
-    else
-        null
+fun removenullvalues(elem) =elem match {
+		case is Object -> elem mapObject using (data= removenullvalues($)){(($$): data) if(isEmpty(data) != true)}
+		case is Array -> (elem map removenullvalues($)) filter (isEmpty($) != true)
+		else -> $
+	}
 
-)}
 ---
 payload mapObject (rootvalue,rootkey) -> {
     (rootkey): rootvalue mapObject (value,key) -> {(

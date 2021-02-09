@@ -1,6 +1,6 @@
 %dw 2.0
 import * from dw::core::Arrays
-output application/xml
+output application/json
 ns transport_load urn:jda:ecom:transport_load:xsd:3
 ns sh http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader
 ns xsi http://www.w3.org/2001/XMLSchema-instance
@@ -21,12 +21,12 @@ fun stopPickLocationIDTL(tl) = (tl.*stop map (currentStop, stopIndex) ->
 
 fun isPickStopAvailable(tl,stopPickLocationID) = (tl.*stop map (currentStop, stopIndex) -> if (locationName every (stopPickLocationID contains $)) true else false) distinctBy $
 
-fun dropStops(tl) = (tl.*transportLoadShipment filter (locationName contains $.shipFrom.additionalPartyIdentification)).shipTo.additionalPartyIdentification distinctBy $
+fun dropStops(tl) = using(shipment = (tl.*transportLoadShipment filter (locationName contains ($.shipFrom.*additionalPartyIdentification[?($.@additionalPartyIdentificationTypeCode == "FOR_INTERNAL_USE_1")][0] default $.shipFrom.*additionalPartyIdentification[?($.@additionalPartyIdentificationTypeCode == "UNKNOWN")][0]) ))) (shipment.shipTo.*additionalPartyIdentification[?($.@additionalPartyIdentificationTypeCode == "FOR_INTERNAL_USE_1")][0] default shipment.shipTo.*additionalPartyIdentification[?($.@additionalPartyIdentificationTypeCode == "UNKNOWN")][0])
 
 fun transportLoadShipments(tl) = if (receiverSuffix != 'LOC.') 
         							(tl.*transportLoadShipment filter (!(locationName contains $.shipFrom.additionalPartyIdentification) )) 
         						else      
-        							(tl.*transportLoadShipment filter (locationName contains $.shipFrom.additionalPartyIdentification))
+        							(tl.*transportLoadShipment filter (locationName contains ($.shipFrom.*additionalPartyIdentification[?($.@additionalPartyIdentificationTypeCode == "FOR_INTERNAL_USE_1")][0] default $.shipFrom.*additionalPartyIdentification[?($.@additionalPartyIdentificationTypeCode == "UNKNOWN")][0]) ) )
 ---
 if ((receiverCount >= 1))
 (
@@ -83,7 +83,7 @@ transport_load#transportLoadMessage @("xmlns:sh":"http://www.unece.org/cefact/na
 		
 		//Drop Stops
 		(stop: if (receiverSuffix == 'LOC.' and dropStops(transportLoad) != null) 
-		             (transportLoad.*stop filter ((dropStops(transportLoad) contains ($.stopLocation.additionalLocationIdentification as String))) and ($.dropoffShipmentReference.additionalShipmentIdentification != null) and (!(locationName contains $.stopLocation.additionalLocationIdentification)))
+		             (transportLoad.*stop filter ((dropStops(transportLoad) ~= ($.stopLocation.additionalLocationIdentification as String))) and ($.dropoffShipmentReference.additionalShipmentIdentification != null) and (!(locationName contains $.stopLocation.additionalLocationIdentification)))
 		else null),
 		
         // Stops without any shipment references
