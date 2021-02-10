@@ -1,6 +1,6 @@
 %dw 2.0
 import * from dw::core::Arrays
-output application/json
+output application/xml
 ns transport_load urn:jda:ecom:transport_load:xsd:3
 ns sh http://www.unece.org/cefact/namespaces/StandardBusinessDocumentHeader
 ns xsi http://www.w3.org/2001/XMLSchema-instance
@@ -15,7 +15,7 @@ var receiverCount= sizeOf (payload.transportLoadMessage.StandardBusinessDocument
 
 fun stopPickLocationIDTL(tl) = (tl.*stop map (currentStop, stopIndex) ->
 	(if((sizeOf (currentStop.*pickupShipmentReference filter ($.additionalShipmentIdentification != null)) default 0) != 0 )
-		(currentStop.stopLocation.additionalLocationIdentification) else null
+		(currentStop.stopLocation.*additionalLocationIdentification[?($.@identificationSchemeName == "WAREHOUSE")][0] default currentStop.stopLocation.additionalLocationIdentification) else null
 	)
 ) distinctBy $
 
@@ -78,12 +78,12 @@ transport_load#transportLoadMessage @("xmlns:sh":"http://www.unece.org/cefact/na
 		
 		//Pickup Stops
         (stop: if (receiverSuffix == 'LOC.' and transportLoad.*stop != null) 
-		             (transportLoad.*stop filter ((locationName contains $.stopLocation.additionalLocationIdentification) and ($.pickupShipmentReference.additionalShipmentIdentification != null)))
+		             (transportLoad.*stop filter ((locationName contains ($.stopLocation.*additionalLocationIdentification[?($.@identificationSchemeName == "WAREHOUSE")][0] default $.stopLocation.additionalLocationIdentification)) and ($.pickupShipmentReference.additionalShipmentIdentification != null)))
 		else transportLoad.*stop),
 		
 		//Drop Stops
 		(stop: if (receiverSuffix == 'LOC.' and dropStops(transportLoad) != null) 
-		             (transportLoad.*stop filter ((dropStops(transportLoad) ~= ($.stopLocation.additionalLocationIdentification as String))) and ($.dropoffShipmentReference.additionalShipmentIdentification != null) and (!(locationName contains $.stopLocation.additionalLocationIdentification)))
+		             (transportLoad.*stop filter ((dropStops(transportLoad) ~= (($.stopLocation.*additionalLocationIdentification[?($.@identificationSchemeName == "WAREHOUSE")][0] default $.stopLocation.additionalLocationIdentification) as String))) and ($.dropoffShipmentReference.additionalShipmentIdentification != null) and (!(locationName contains ($.stopLocation.*additionalLocationIdentification[?($.@identificationSchemeName == "WAREHOUSE")][0] default $.stopLocation.additionalLocationIdentification))))
 		else null),
 		
         // Stops without any shipment references
