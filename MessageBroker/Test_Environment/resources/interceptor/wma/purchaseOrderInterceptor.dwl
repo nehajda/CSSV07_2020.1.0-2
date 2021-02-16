@@ -19,7 +19,24 @@ fun filterOrder(order,linenumber,parentkey) = order mapObject(value,key) -> {   
         )
 }
 
-fun destinorder(order) = order.*orderLineItem filter(destination contains ($.orderLineItemDetail.orderLogisticalInformation.shipTo.*additionalPartyIdentification[?($.@additionalPartyIdentificationTypeCode == "FOR_INTERNAL_USE_1")][0] default $.orderLineItemDetail.orderLogisticalInformation.shipTo.*additionalPartyIdentification[?($.@additionalPartyIdentificationTypeCode == "UNKNOWN")][0]))
+fun destinorder(order) = using(headerlevelshipto = order.orderLogisticalInformation.shipTo.*additionalPartyIdentification[?($.@additionalPartyIdentificationTypeCode == "FOR_INTERNAL_USE_1")][0] default order.orderLogisticalInformation.shipTo.*additionalPartyIdentification[?($.@additionalPartyIdentificationTypeCode == "UNKNOWN")][0]) 
+    if(not isEmpty(headerlevelshipto))
+        (if(destination contains headerlevelshipto)
+        {
+            "order": order,
+            "headerlevelshipto": not isEmpty(headerlevelshipto)
+        }
+        else
+        {
+            "order": null,
+            "headerlevelshipto": not isEmpty(headerlevelshipto)
+        }    
+        )
+    else
+        {
+            "order": order.*orderLineItem filter(destination contains ($.orderLineItemDetail.orderLogisticalInformation.shipTo.*additionalPartyIdentification[?($.@additionalPartyIdentificationTypeCode == "FOR_INTERNAL_USE_1")][0] default $.orderLineItemDetail.orderLogisticalInformation.shipTo.*additionalPartyIdentification[?($.@additionalPartyIdentificationTypeCode == "UNKNOWN")][0])),
+            "headerlevelshipto": false
+        }
 
 ---
 
@@ -27,12 +44,16 @@ payload mapObject(order, roottag) -> {                       // Filter the order
     (roottag): order mapObject(po, pokey) -> {
         (if(pokey ~= "StandardBusinessDocumentHeader")		 // print sbdh section
             (pokey): po
-        else if (pokey ~= "order")							
-            (if(sizeOf(destinorder(po)) > 0)				//check if current order has the current destination
-                (pokey): filterOrder(po,destinorder(po).lineItemNumber,"order")
+        else if (pokey ~= "order") using (destinationOrders = destinorder(po))							        (pokey): (if(destinationOrders.headerlevelshipto == true) 
+                destinationOrders.order
+            else
+                (if(sizeOf(destinationOrders.order) > 0)				//check if current order has the current destination
+                    filterOrder(po,destinationOrders.order.lineItemNumber,"order")
             else
                 null
             ) 
+                
+            )            
         else
             (pokey): po
         )
