@@ -48,7 +48,7 @@ transport_load#transportLoadMessage @("xmlns:sh":"http://www.unece.org/cefact/na
     {
         creationDateTime: transportLoad.creationDateTime,
         documentStatusCode: transportLoad.documentStatusCode,
-        documentActionCode: if ((not (isPickStopAvailable(transportLoad,stopPickLocationID) contains true)) and (receiverSuffix == 'LOC.')) 'DELETE' else transportLoad.documentActionCode,
+        documentActionCode: transportLoad.documentActionCode,
         (lastUpdateDateTime: transportLoad.lastUpdateDateTime) if(transportLoad.lastUpdateDateTime != null),
         transportLoadIdentification: transportLoad.transportLoadIdentification,
         loadStatusCode: transportLoad.loadStatusCode,
