@@ -1,0 +1,16 @@
+{  
+    "codeMap": {
+        "name": "CWM", 
+        "isBiDirectional": true,
+        "codes": [           
+          { "key": "E1200", "value": "DC0001" }, 
+		  { "key": "AU", "value": "DC0001" }, 
+          { "key": "AYUSH", "value": "DC0001" }, 
+          { "key": "E1200", "value": "DC0002" },
+		  { "key": "AU", "value": "DC0002" },
+		  { "key": "E1200", "value": "DC1001" },
+		  { "key": "1000", "value": "DC1001" }
+        ],
+   "defaultValue": "EA"
+        }
+}
