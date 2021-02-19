@@ -1,9 +1,12 @@
 %dw 2.0
-
-output application/json 
---- 
-if(["PurchaseOrder","purchaseOrder"] contains vars.jci.messageSubType)
-	(payload..*orderIdentification.entityIdentification joinBy "-") default (payload..*orderId joinBy "-")
-else if(["transportLoadMessage","transportLoad"] contains vars.jci.messageSubType)
-	(payload..*transportLoadIdentification.entityIdentification joinBy "-") default (payload..*transportLoadId joinBy "-")
-else null
+output application/json
+---
+vars.jci.messageSubType match  {
+    case "PurchaseOrder" -> payload..*orderIdentification.entityIdentification joinBy "-"
+    case "purchaseOrder" -> payload..*orderId joinBy "-"
+    case "transportLoadMessage" -> payload..*transportLoadIdentification.entityIdentification joinBy "-"
+    case "transportLoad" -> payload..*transportLoadId joinBy "-"
+    case "itemMessage" -> payload..*itemIdentification.additionalTradeItemIdentification joinBy "-"
+    case "item" -> payload..*itemId.primaryId joinBy "-"
+    else -> null
+}

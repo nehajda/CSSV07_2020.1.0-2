@@ -1,15 +1,14 @@
 %dw 2.0
 output application/xml
+fun checkPayload(data)= (if(isEmpty(data))
+		                            vars.runningPayload
+	                            else
+		                            payload)
+
 ---
-if(vars.jci.messageSubType == "transportLoadMessage")
-	if(isEmpty(payload..*transportLoad[0]))
-		vars.runningPayload
-	else
-		payload
-else if(vars.jci.messageSubType == "PurchaseOrder")
-	if(isEmpty(payload..*order))
-		vars.runningPayload
-	else	
-		payload
-else
-	payload
+vars.jci.messageSubType match  {
+    case "PurchaseOrder" -> checkPayload(payload..*order)
+    case "transportLoadMessage" -> checkPayload(payload..*transportLoad[0])
+    case "itemMessage" -> checkPayload(payload..*item)
+    else -> payload
+}
