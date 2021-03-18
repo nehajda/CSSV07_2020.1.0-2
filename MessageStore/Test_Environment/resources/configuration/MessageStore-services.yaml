@@ -46,8 +46,8 @@ services:
       maxRetryIntervalMins : 1
     replay:
       request:
-        #configType: https
-        configType: http
+        configType: https
+        #configType: http
         https:
           port: "9930"
           host: "in2npdvdcssv07.dev.corp.local"
