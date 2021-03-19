@@ -1,6 +1,6 @@
 MSDatabase:
-  user-secure: "MSGSTR_GOLD_02"
-  password-secure: "MSGSTR_GOLD_02"
+  user-secure: "MSGSTR_ENVG_02"
+  password-secure: "MSGSTR_ENVG_02"
 
 
 server:
