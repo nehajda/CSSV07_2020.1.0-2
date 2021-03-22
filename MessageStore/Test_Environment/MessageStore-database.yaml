@@ -1,7 +1,7 @@
 # Properties relating to Database
 
 MSDatabase:
-  url: "jdbc:oracle:thin:@in2npdlnxdb10:1521:if19ca"
+  url: "jdbc:oracle:thin:@in2npdlnxdb18:1521:IF18CB"
   driverClassName: "oracle.jdbc.driver.OracleDriver"
    
         
