@@ -16,6 +16,7 @@
 # As if we put line 19 before line 12 , we wil lnot get the desired result as all messageTypes will be matched for GS1 
 # where as intention was to convert <itemMessage|locationMessage|orderMessage> to BYDM and rest to GS1 but since wildcard matches all , named list will never be matched.
 
+- 'LOC.DC0002:*:BYDM'
 - 'LOC.*:*:GS1'
 - 'TMS.GLOBAL:*:BYDM'
 - 'HOST.GLOBAL:*:BYDM'
