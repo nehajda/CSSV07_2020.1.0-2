@@ -38,7 +38,7 @@ outboundEndpoints:
     name: jmsOutboundFlow
     parameters:
     - name: "queue"
-      value: "MB-WMA"
+      value: "MB-WMA1"
   interceptorFlow: interceptorMultipleDestinationFilterSubFlow
 - name: WMA2
   flow:
