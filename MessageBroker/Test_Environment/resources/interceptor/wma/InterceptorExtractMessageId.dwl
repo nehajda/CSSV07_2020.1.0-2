@@ -8,5 +8,7 @@ vars.jci.messageSubType match  {
     case "transportLoad" -> payload..*transportLoadId joinBy "-"
     case "itemMessage" -> payload..*itemIdentification.additionalTradeItemIdentification joinBy "-"
     case "item" -> payload..*itemId.primaryId joinBy "-"
+    case "locationMessage" -> payload..*locationIdentification.entityIdentification joinBy "-"
+    case "location" -> payload..*locationId joinBy "-"
     else -> null
 }
