@@ -52,7 +52,7 @@ flow:
 modelConverter:
   isRequired: true
   config: "configuration/converter-config.yaml"
-  canModelList: "BYDM 2020.3.0,BYDM 2020.3.0.2"
+  canModelList: "BYDM 2020.2.0,BYDM 2020.3.0,BYDM 2020.3.0.2"
   canModelService: 
     ## Use local Canmodel - For testing
     config: "Local"
@@ -259,7 +259,14 @@ messageStore:
     tls:
       trustStore:
         path: "truststore.jks"
-
+ ## Message Entities with Interceptor Logic will be stored in Message Store(Both Bydm and Gs1)
+  StoreInboundMessageList: "PurchaseOrder,transportLoadMessage,purchaseOrder,transportLoad,item,itemMessage,location"
+  
+interceptor:
+  ## List of Message Entities that requires the client to warehouseId Code Map in Interceptor Logic
+  clientWarehouseIdCodeMapEnabledList: "itemMessage,locationMessage"
+  ## List of Message Entities that has Interceptor Logic Available
+  interceptorLogicList: "PurchaseOrder,transportLoadMessage,itemMessage,locationMessage"
 
 
 
